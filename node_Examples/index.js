@@ -2,12 +2,15 @@ var rect = require('./rectangle')
 
 function solveRectangle(l,b) {
     console.log("solving for rectangle with l =" + l + " Width b =" + b)
-    if (l <= 0 || b <= 0) {
-        console.log("rectangle dimentions should be greater than zero: l =" + l +", and b=" + b)
-    } else {
-        console.log("the area of the rectangel is" + rect.area(l,b))
-        console.log("the perimeter of the rectangle is " + rect.perimeter(l,b))
-    }
+   rect(l,b, (err, rectangle) => {
+       if (err) {
+           console.log("Error: ", err.message)
+       } else {
+           console.log("The area of the rectangle of dimentions a =" + l + "and b =" + b + "is "+ rectangle.area())
+           console.log("The perimeter of the rectangle of dimentions a =" + l + "and b =" + b + "is "+ rectangle.perimeter())
+       }
+   })
+   console.log("this is after exce")
 }
 
 solveRectangle(2,4)
